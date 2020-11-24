@@ -5,14 +5,18 @@
     <title>React</title>
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpig.com/babel-standalone@6.26.0/babel.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 </head>
 <body>
     <h1>React</h1>
     <div id="root">wait...</div>
     
     <script type="text/babel">
-        let dom = document.querySelector("#root");
+
+        let dom = document.querySelector('#root');
+        let title = "新タイトル";
+        let messege = "新メッセージ";
+
         let el  = (
             <div>
                 <h2>JSX sample</h2>
@@ -20,7 +24,7 @@
             </div>
         );
 
-        ReactDOM.render(el, dom)
+        ReactDOM.render(el, dom);
     </script>
 </body>
 </html>
