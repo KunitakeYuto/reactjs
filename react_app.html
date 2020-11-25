@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
     <title>React</title>
@@ -7,27 +8,43 @@
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 </head>
+
 <body>
     <h1>React</h1>
     <div id="root">wait...</div>
-    
+
     <script type="text/babel">
 
-        const msg_s = {
-            fontSize:"20px",
-            color:"red",
-            border:"1px solid blue"
+        let dom = document.querySelector('#root');
+        let messege = "メッセージを表示します";
+
+        const msg = {
+            fontSize: "20px",
+            fontWeight: "700",
+            color: "red",
+            border: "2px solid green"
         }
 
-        let dom = document.querySelector('#root');
-        let messege = "新しいメッセージです";
-        let el  = (
+        let printMsg = function (msg, size, color) {
+            const style = {
+                fontSize: size + "pt",
+                fontWeight: "700",
+                color: color,
+                border: "1px solid" + color
+            };
+            return <p style={style}>{msg}</p>
+        }
+
+        let el = (
             <div>
-                <p style={msg_s}>{messege}</p>
+                {printMsg("最初のメッセージ", 30, "#ddd")}
+                {printMsg("次のメッセージ", 20, "#aaa")}
+                {printMsg("最後のメッセージ", 14, "#333")}
             </div>
         );
 
         ReactDOM.render(el, dom);
     </script>
 </body>
+
 </html>
