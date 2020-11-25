@@ -13,14 +13,17 @@
     
     <script type="text/babel">
 
-        let dom = document.querySelector('#root');
-        let title = "新タイトル";
-        let messege = "新メッセージ";
+        const msg_s = {
+            fontSize:"20px",
+            color:"red",
+            border:"1px solid blue"
+        }
 
+        let dom = document.querySelector('#root');
+        let messege = "新しいメッセージです";
         let el  = (
             <div>
-                <h2>JSX sample</h2>
-                <p>This is sample</p>
+                <p style={msg_s}>{messege}</p>
             </div>
         );
 
