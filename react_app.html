@@ -16,21 +16,24 @@
     <script type="text/babel">
 
         let dom = document.querySelector('#root');
-        let messege = "メッセージを表示します";
 
-        const msg = {
-            fontSize: "20px",
-            fontWeight: "bold",
-            color: "red",
-            border: "2px solid green"
+
+        const list = {
+            fontSize: "18pt",
+            padding: "5px 10px"
         }
 
-        let flg = true;//☆
+        let data = [
+            < li > 1</li>,
+            <li>2</li>,
+            <li>3</li>
+        ]
+
         let el = (
             <div>
-                {flg &&
-                    <p style={msg}>{messege}</p>
-                }
+                <ul style={list}>
+                    {data}
+                </ul>
             </div>
         );
 
