@@ -28,9 +28,9 @@
         function Calc(props) {
             let total = 0;
             for (let i = 1; i <= props.number; i++) {
-                total += 1;
+                total += i;
             }
-            return <p style={msg}>1から{props.numder}までの合計は「{total}」です</p>;
+            return <p style={msg}>1から{props.number}までの合計は「{total}」です</p>;
 
         }
 
