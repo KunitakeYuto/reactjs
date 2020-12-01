@@ -16,29 +16,33 @@
     <script type="text/babel">
 
         let dom = document.querySelector('#root');
-        const p = {
-            fontSize: "20pt",
+
+        const msg = {
+            fontSize: "16pt",
+            fontWeight: "bold",
             padding: "10px",
-            backgroundColor: "blue",
             color: "white",
-            cursor: "pointer"
+            backgroundColor: "darkblue"
         };
 
-        var counter = 0;
+        function Calc(props) {
+            let total = 0;
+            for (let i = 1; i <= props.number; i++) {
+                total += 1;
+            }
+            return <p style={msg}>1から{props.numder}までの合計は「{total}」です</p>;
 
-        let doAction = (event) => {
-            counter++;
-            let el = (
-                <div>
-                    <p onClick={doAction} style={p}>
-                        count:{counter}
-                    </p>
-                </div>
-            );
-            ReactDOM.render(el, dom);
-        };
+        }
 
-        doAction();
+        let el = (
+            <div>
+                <Calc number="100" />
+                <Calc number="200" />
+                <Calc number="300" />
+            </div>
+        );
+
+        ReactDOM.render(el, dom);
 
     </script>
 </body>
