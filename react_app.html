@@ -18,27 +18,25 @@
         let dom = document.querySelector('#root');
 
         const msg = {
-            fontSize: "16pt",
+            fontSize: "20pt",
             fontWeight: "bold",
             padding: "10px",
-            color: "white",
-            backgroundColor: "darkblue"
+            border: "solid 5px yellow"
         };
 
-        function Calc(props) {
-            let total = 0;
-            for (let i = 1; i <= props.number; i++) {
-                total += i;
+        class Hello extends React.Component {
+            constructor(props) {
+                super(props);
             }
-            return <p style={msg}>1から{props.number}までの合計は「{total}」です</p>;
 
+            render() {
+                return <p style={msg}>Hello!!</p>;
+            }
         }
 
         let el = (
             <div>
-                <Calc number="100" />
-                <Calc number="200" />
-                <Calc number="300" />
+                <Hello />
             </div>
         );
 
