@@ -21,6 +21,8 @@ export function memoReducer(state = initData, action) {
     }
 }
 
+
+
 function addReduce(state, action) {
     let data = {
         message: action.message,
@@ -83,5 +85,6 @@ export function findMemo(text) {
         find: text
     }
 }
+
 
 export default createStore(memoReducer);
