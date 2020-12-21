@@ -1,18 +1,23 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
-import Memo from "./memo/Memo";
-import AddForm from "./memo/AddForm";
-import FindForm from "./memo/FindForm";
-import DelForm from "./memo/DelForm";
+import Memo from './memo/Memo';
+import AddForm from './memo/AddForm';
+import FindForm from './memo/FindForm';
+import DelForm from './memo/DelForm';
 
+
+// Appコンポーネント
 class App extends Component {
   td = {
-    width: "250"
+    width: "250px"
   }
+
+
   constructor(props) {
-    super(props)
+    super(props);
   }
+
   render() {
     return (
       <div>
@@ -28,7 +33,6 @@ class App extends Component {
     );
   }
 }
-
 
 
 export default connect()(App);

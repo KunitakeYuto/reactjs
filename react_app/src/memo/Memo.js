@@ -1,29 +1,37 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import Item from "./Item";
+
+import Item from './Item';
+
 
 class Memo extends Component {
+
+
     render() {
         let data;
         let n = 0;
         switch (this.props.mode) {
-            case "default":
+            case 'default':
                 data = this.props.data.map((value) => (
                     <Item key={value.message} value={value} index={n++} />
                 ));
                 break;
 
-            case "find":
+            case 'find':
                 data = this.props.fdata.map((value) => (
                     <Item key={value.message} value={value} index={n++} />
                 ));
                 break;
-            case "delete":
+
+
+            case 'delete':
                 data = this.props.data.map((value) => (
-                    <Item key={value.massage} value={value} index={n++} />
+                    <Item key={value.message} value={value} index={n++} />
                 ));
                 break;
+
+
             default:
                 data = this.props.data.map((value) => (
                     <Item key={value.message} value={value} index={n++} />
@@ -34,5 +42,4 @@ class Memo extends Component {
         );
     }
 }
-
 export default connect((state) => state)(Memo);

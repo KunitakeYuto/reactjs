@@ -1,19 +1,22 @@
-import { createStore } from "redux";
+import { createStore } from 'redux';
 
 const initData = {
-    data: [{ message: "sample data", created: new Date() }],
-    message: "please type message",
-    mode: "default",
+    data: [{ message: 'sample data', created: new Date() }],
+    message: 'please type message:',
+    mode: 'default',
     fdata: []
 };
 
+// レデューサー
 export function memoReducer(state = initData, action) {
     switch (action.type) {
-        case "ADD":
+        case 'ADD':
             return addReduce(state, action);
-        case "DELETE":
+
+        case 'DELETE':
             return deleteReduce(state, action);
-        case "FIND":
+
+        case 'FIND':
             return findReduce(state, action);
 
         default:
@@ -21,8 +24,9 @@ export function memoReducer(state = initData, action) {
     }
 }
 
+// レデュースアクション
 
-
+// メモ追加のレデュース処理
 function addReduce(state, action) {
     let data = {
         message: action.message,
@@ -32,12 +36,13 @@ function addReduce(state, action) {
     newdata.unshift(data);
     return {
         data: newdata,
-        message: "Added!",
-        mode: "default",
-        fdata: [],
+        message: 'Added!',
+        mode: 'default',
+        fdata: []
     };
 }
 
+// メモ検索のレデュース処理
 function findReduce(state, action) {
     let f = action.find;
     let fdata = [];
@@ -48,43 +53,49 @@ function findReduce(state, action) {
     });
     return {
         data: state.data,
-        message: '"find' + f + '":',
-        mode: "find",
+        message: 'find "' + f + '":',
+        mode: 'find',
         fdata: fdata
     };
 }
 
+// メモ削除のレデュース処理
 function deleteReduce(state, action) {
     let newdata = state.data.slice();
     newdata.splice(action.index, 1);
     return {
-        data: state.data,
-        message: 'delete"' + action.index + '":',
-        mode: "delete",
+        data: newdata,
+        message: 'delete "' + action.index + '":',
+        mode: 'delete',
         fdata: []
     }
 }
 
+// アクションクリエーター
+
+// メモ追加のアクション
 export function addMemo(text) {
     return {
-        type: "ADD",
+        type: 'ADD',
         message: text
     }
 }
 
+// メモ削除のアクション
 export function deleteMemo(num) {
     return {
-        type: "DELETE",
+        type: 'DELETE',
         index: num
     }
 }
 
+// メモ検索のアクション
 export function findMemo(text) {
     return {
-        type: "FIND",
+        type: 'FIND',
         find: text
     }
 }
 
-
+// ストアを作成
 export default createStore(memoReducer);
