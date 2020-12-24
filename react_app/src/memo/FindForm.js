@@ -21,6 +21,16 @@ class FindForm extends Component {
         this.doChange = this.doChange.bind(this);
         this.doAction = this.doAction.bind(this);
     }
+    doChange(e) {
+        this.setState({
+            find: e.target.value
+        });
+    }
+    doAction(e) {
+        e.preventDefault();
+        let action = findMemo(this.state.find);
+        this.props.dispatch(action);
+    }
     render() {
         return (
             <form onSubmit={this.doAction}>

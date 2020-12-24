@@ -24,7 +24,7 @@ class DelForm extends Component {
     }
     doChange(e) {
         this.setState({
-            number: e.taeget.value
+            number: e.target.value
         });
     }
     doAction(e) {
