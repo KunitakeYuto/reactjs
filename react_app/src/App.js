@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 
+
+// Appコンポーネント
 class App extends Component {
+
+
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <div>
@@ -16,53 +21,64 @@ class App extends Component {
     );
   }
 }
-
+// ストアのコネクト
 App = connect()(App);
 
+
+// メッセージ表示のコンポーネント
 class Message extends Component {
   style = {
     fontSize: "20pt",
     padding: "20px 5px"
   }
+
   render() {
     return (
       <p style={this.style}>
-        {this.props.message}:{this.props.counter}
+        {this.props.message}: {this.props.counter}
       </p>
     );
   }
 }
+// ストアのコネクト
+Message = connect((state) => state)(Message);
 
-Message = connect((state) => (Message));
 
+// ボタンのコンポーネント
 class Button extends Component {
   style = {
     fontSize: "16pt",
     padding: "5px 10px"
   }
+
   constructor(props) {
     super(props);
     this.doAction = this.doAction.bind(this);
   }
 
+  // ボタンクリックでディスパッチを実行
   doAction(e) {
     if (e.shiftKey) {
-      this.props.dispatch({ type: "DECREMENT" });
+      this.props.dispatch({ type: 'DECREMENT' });
     } else if (e.ctrlKey) {
-      this.props.dispatch({ type: "RESET" });
+      this.props.dispatch({ type: 'RESET' });
     } else {
-      this.props.dispatch({ type: "INCREMENT" });
+      this.props.dispatch({ type: 'INCREMENT' });
     }
   }
 
+
   render() {
     return (
-      <button style={this.style} onClick={this.doAction}>
+      <button style={this.style}
+        onClick={this.doAction}>
         click
       </button>
     );
   }
 }
-
+// ストアのコネクト
 Button = connect()(Button);
+
+
 export default App;
