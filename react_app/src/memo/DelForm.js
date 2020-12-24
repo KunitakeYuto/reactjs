@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { deleteMemo } from "./Store";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { deleteMemo } from './Store';
+
 
 class DelForm extends Component {
     input = {
@@ -14,6 +15,7 @@ class DelForm extends Component {
         color: "#006",
         padding: "2px 10px"
     }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -22,11 +24,15 @@ class DelForm extends Component {
         this.doChange = this.doChange.bind(this);
         this.doAction = this.doAction.bind(this);
     }
+
+
     doChange(e) {
         this.setState({
             number: e.target.value
         });
     }
+
+
     doAction(e) {
         e.preventDefault();
         let action = deleteMemo(this.state.number);
@@ -35,11 +41,12 @@ class DelForm extends Component {
             number: 0
         });
     }
+
+
     render() {
-        let n = 0
+        let n = 0;
         let items = this.props.data.map((value) => (
             <option key={n} value={n++}>{value.message.substring(0, 10)}</option>
-
         ));
         return (
             <div>
@@ -51,8 +58,7 @@ class DelForm extends Component {
                     <input type="submit" style={this.btn} value="Del" />
                 </form>
             </div>
-        )
+        );
     }
 }
-
-export default connect((state) => state)(DelForm)
+export default connect((state) => state)(DelForm);
