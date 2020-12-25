@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import pstore from "../index";
 
-class persistForm extends Component {
+class PersistForm extends Component {
     check = {
         margin: "5px 0px",
     }
@@ -18,6 +18,7 @@ class persistForm extends Component {
         }
         this.doChange = this.doChange.bind(this);
     }
+
     doChange(e) {
         let f = e.target.checked;
         this.setState({
