@@ -1,3 +1,5 @@
+import css from "styled-jsx/css";
+
 export default <style>{`
     body{
         margin:10px;
@@ -33,6 +35,28 @@ export default <style>{`
         margin:0px;
         color:#669;
         font-size:16pt;
+    }
+    hr{
+        margin:25px 0px;
+    }
+    tr{
+        margin:0px;
+    }
+    th{
+        font-size:14pt;
+        font-weight:plain;
+        text-align:left;
+        padding:0px 20px;
+        margin:0px;
+        border-bottom:1px solid gray;
+    }
+    td{
+        font-size:14pt;
+        font-weight:plain;
+        text-align:right;
+        pading:0px 20px;
+        margin:0px;
+        border-bottom:1px solid gray;
     }
 
 `}</style>;
