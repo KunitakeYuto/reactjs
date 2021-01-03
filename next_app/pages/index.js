@@ -1,15 +1,9 @@
-import Link from "next/link";
-import Layout from "../components/Layout";
-import Counter from "../components/Counter";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 
-export default () => (
-    <Layout header="Next" title="Top page.">
-        <Counter />
-        <hr />
-        <Link href="./other">
-            <button>
-                go to Other &gt;&gt;
-            </button>
-        </Link>
-    </Layout>
+ReactDOM.render(
+    <App />,
+    document.getElementById("root")
 );
