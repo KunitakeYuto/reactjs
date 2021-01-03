@@ -54,7 +54,6 @@ class Sampledata extends Component {
             </tbody></table>
         )
     }
-
 }
 
 export default Sampledata;

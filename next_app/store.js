@@ -1,46 +1,39 @@
 import { createStore, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
+import firebase from "firebase";
 
-const initial = {
-    message: "START",
-    data: [],
-    number: [],
-    result: 0
+var config = {
+    apiKey: "AIzaSyAvTQeelJrzkKAv375BIA-MSo_lHDAR0QQ",
+    authDomain: "react-gakusyu.firebaseapp.com",
+    databaseURL: "https://react-gakusyu-default-rtdb.firebaseio.com",
+    projectId: "react-gakusyu",
+    storageBucket: "react-gakusyu.appspot.com",
+    messagingSenderId: "22479159306",
+    appId: "1:22479159306:web:fdb791a82017944a4a1ff3",
+    measurementId: "G-9GDMWVPV2P"
 }
 
-//レデューサー
-function counterReducer(state = initial, action) {
-    switch (action.type) {
-        //計算
-        case "ENTER":
-            let data2 = state.data.slice();
-            let s = action.value;
-            data2.unshift(s);
-            let num = s.replace(/[^0-9]/g, "");
-            let number2 = state.number.slice();
-            number2.unshift(num);
-            let result = (state.result * 1) + (num * 1);
-            return {
-                message: "ENTER",
-                data: data2,
-                number: number2,
-                result: result,
-            };
+var fireapp;
+try {
+    firebase.initializeApp(config);
+} catch (error) {
+    console.log(error.message);
+}
+export default fireapp;
 
-        //reset
-        case "RESET":
-            return {
-                message: "RESET",
-                data: [],
-                number: [],
-                result: 0,
-            };
+const initial = {
+
+}
+
+function fireReducer(state = initial, action) {
+    switch (action.type) {
+        case "TESTACTION":
+            return state;
         default:
             return state;
     }
 }
 
-//redux-store関係
-export function initStore(state = initial) {
-    return createStore(calcReducer, state, applyMiddleware(thunkMiddleware))
+export function initiStore(state = initial) {
+    return createStore(fireReducer, state, applyMiddleware(thunkMiddleware))
 }
