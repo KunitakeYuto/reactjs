@@ -58,5 +58,4 @@ export default <style>{`
         margin:0px;
         border-bottom:1px solid gray;
     }
-
 `}</style>;
